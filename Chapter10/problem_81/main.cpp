@@ -2,6 +2,7 @@
 #include <string>
 #include <string_view>
 #include <fstream>
+#include <functional>
 
 #include "ZipFile.h"
 #include "utils/stream_utils.h"
