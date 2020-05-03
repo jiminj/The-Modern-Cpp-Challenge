@@ -405,7 +405,7 @@ bool IntegrityCheckModule(const char *moduleFilename, const byte *expectedModule
 				// first byte of _CRT_DEBUGGER_HOOK gets modified in memory by the debugger invisibly, so read it from file
 				if (IsDebuggerPresent())
 				{
-					if (subSectionMemStart <= (byte *)&_CRT_DEBUGGER_HOOK && (byte *)&_CRT_DEBUGGER_HOOK < subSectionMemStart + subSectionSize)
+					if (subSectionMemStart <= (byte *)&_CRT_DEBUGGER_HOOK && (byte *)(&_CRT_DEBUGGER_HOOK) < subSectionMemStart + subSectionSize)
 					{
 						subSectionSize = (byte *)&_CRT_DEBUGGER_HOOK - subSectionMemStart;
 						nextSubSectionStart = (byte *)&_CRT_DEBUGGER_HOOK - sectionMemStart + 1;
